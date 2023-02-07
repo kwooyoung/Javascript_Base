@@ -84,4 +84,13 @@ for (value of array) {
   //of는 array에 있는 모든값들이 순차적으로 출력하거나 계산하면서 반복 수행됨
   console.log(value);
 }
-array.forEach((hi) => console.log(hi + 1)); //forEach로도 가능ㅋ
+array.forEach((hi) => console.log(hi + 1)); //forEach로도 가능
+
+//Fun cloning
+//Object.assign(dest, obj1, obj2,) obj 복제
+const user = { name: "ellie", age: 30 };
+const user2 = user; // user의 값이 바뀜(당연)
+console.clear();
+
+const user4 = Object.assign({}, user);
+console.log(user4);
