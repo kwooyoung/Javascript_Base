@@ -73,22 +73,54 @@ const students = [
 // Q7. make an array containing only the students' scores
 // result should be: [45, 80, 90, 66, 88]
 {
+  const result = students.map((student) => student.score);
+  console.log(result);
+  //map은 배열안에 들어있는 모든 요소들을 콜백함수를 호출하면서
+  //가공되어진(return 되어진) 값들로 대체한다.
 }
 
 // Q8. check if there is a student with the score lower than 50
 {
+  console.clear();
+  const result = students.some((student) => student.score < 50);
+  console.log(result);
+  //누군가라도 점수가 50점 보다 낮은 값이 있는지 없는지 확인할땐 some
+  //some(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): boolean;
+  //콜백함수 중에서 배열의 요소중에서 콜백함수가 리턴이 true 가 되는 값이 있는지 없는지를 확인.
+  const result1 = students.every((student) => student.score < 50);
+  console.log(result1);
+  //every 모든 조건이 충족되야지만 true를 리턴
 }
 
 // Q9. compute students' average score
 {
+  console.clear();
+  const result = students.reduce((prev, curr) => prev + curr.score, 0);
+  //초기 prev값을 0으로 설정
+  console.log(result / students.length);
+
+  //reduceRight => 배열의 제일 뒤에서 시작한다
+  //reduce<U>(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initialValue: U): U;
+  //
 }
 
 // Q10. make a string containing all the scores
 // result should be: '45, 80, 90, 66, 88'
 {
+  const result = students.map((student) => student.score);
+  //students의 score를 맵핑을해서 score 값만 들어있는 새로운 배열을 만듦
+  console.log(result.join()); //그 값의 조인을 하면 스트링으로 변경이 가능
+  //const result = students.map((student) => student.score).join();
+  /*
+  const result = students.map((student)=>student.score)
+  .filter((score)=>score>=50)
+  .join();
+  */
 }
 
 // Bonus! do Q10 sorted in ascending order
 // result should be: '45, 66, 80, 88, 90'
 {
+  const result = students.map((student) => student.score).sort();
+  console.log(result);
 }
